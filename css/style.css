@@ -1,0 +1,840 @@
+/*====  RESET ============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/*====  VARIABLES ============================ */
+:root {
+    --header-height: 4.5rem;
+
+    /* colors */
+    --hue: 150; /*cor baseada na matriz de cores*/
+    /* HSL color mode */
+    --base-color: hsl(var(--hue) 36% 57%);/*cor dos botões, rodapé e etc*/
+    --base-color-second: hsl(var(--hue) 65% 88%);/*cor da sombra das imagens*/
+    --base-color-alt: hsl(var(--hue) 57% 53%);/*cor do hover dos botões*/
+    --title-color: hsl(var(--hue) 41% 10%);/*cor dos textos do menu, rodapé e dos titulos das sessões*/
+    --text-color: hsl(0 0% 46%);/*Cor dos textos*/
+    --text-color-light: hsl(0 0% 98%);/*cor dos textos das box*/
+    --body-color: hsl(0 0% 98%);/*cor do fundo da pagina*/
+
+    /* fonts */
+    --title-font-size: 1.875rem;
+    --subtitle-font-size: 1rem;
+
+    --title-font: 'Poppins', sans-serif;
+    --body-font: 'DM Sans', sans-serif;
+}
+
+/*===  BASE ============================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {/*cor de fundo de toda a pagina e dos textos*/
+    font: 400 1rem var(--body-font);
+    color: var(--text-color);
+    background: var(--body-color);
+    -webkit-font-smoothing: antialiased;
+}
+
+.title {/*estilização das cores e tamanho do titulo*/
+    font: 700 var(--title-font-size) var(--title-font);
+    color: var(--title-color);
+    -webkit-font-smoothing: auto;
+}
+
+.button {/*cor dos botões*/
+    background-color: var(--base-color);
+    color: var(--text-color-light);
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    font: 500 1rem var(--body-font);
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: var(--base-color-alt);/*hover dos botões*/
+}
+
+.divider-1 {/*estilização da 1ª linha*/
+    height: 1px;
+    background: linear-gradient(270deg,
+            hsla(var(--hue), 36%, 57%, 1),
+            hsla(var(--hue), 65%, 88%, 0.34));
+}
+
+.divider-2 {/*estilização da 2ª linha*/
+    height: 1px;
+    background: linear-gradient(270deg,
+            hsla(var(--hue), 65%, 88%, 0.34),
+            hsla(var(--hue), 36%, 57%, 1));
+}
+
+/*====  LAYOUT ============================ */
+.container {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.section {
+    padding: calc(5rem + var(--header-height)) 0;
+}
+
+.section .title {
+    margin-bottom: 1rem;
+}
+
+.section .subtitle {
+    font-size: var(--subtitle-font-size);
+}
+
+.section header {
+    margin-bottom: 4rem;
+}
+
+.section header strong {
+    color: var(--base-color);
+}
+
+#header {/*estilização do menu: bordas e cor*/
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 2rem;
+    display: flex;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--body-color);
+    width: 100%;
+}
+
+#header.scroll {
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+}
+
+/*====  LOGO ============================ */
+
+.logo {
+    font: 700 1.31rem var(--title-font);
+    color: var(--title-color); /*Mudar a cor do "marlon"*/
+}
+
+.logo span {
+    color: var(--base-color);/*Mudar a cor do "Silva"*/
+}
+
+.logo-alt span {
+    color: var(--body-color);/*mudar a cor do "silva" do rodapé*/
+}
+
+/*====  NAVIGATION ============================ */
+
+nav {/*estilização do menu da página*/
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/*estilização da lista do menu*/
+nav ul li {
+    text-align: center;
+}
+
+nav ul li a {
+    transition: color 0.2s;
+    position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {/*hover para mudar a cor do texto do menu ao passar o mouse*/
+    color: var(--base-color);
+}
+
+nav ul li a::after {/*hover para mudar a cor da "linha" abaixo do texto ao passar o mouse*/
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--base-color);
+
+    position: absolute;
+    left: 0;
+    bottom: -1.5rem;
+
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {/*hover para que a "linha" abaixo do texto se extenda até o final da palavra*/
+    width: 100%;
+}
+
+nav .menu {
+    opacity: 0;
+    visibility: hidden;
+    top: -20rem;
+    transition: 0.2s;
+}
+
+nav .menu ul {
+    display: none;
+}
+
+/* Mostrar menu */
+nav.show .menu {
+    opacity: 1;
+    visibility: visible;
+
+    background: var(--body-color);
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    place-content: center;
+}
+
+nav.show .menu ul {
+    display: grid;
+}
+
+nav.show ul.grid {
+    gap: 4rem;
+}
+
+/* toggle menu */
+.toggle {
+    color: var(--base-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav .icon-close {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    top: -1.5rem;
+    right: 1.5rem;
+
+    transition: 0.2s;
+}
+
+nav.show div.icon-close {
+    visibility: visible;
+    opacity: 1;
+    top: 1.5rem;
+}
+
+.back-to-top.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*====  HOME ============================ */
+#home {
+    overflow: hidden;
+}
+
+#home .container {
+    margin: 0;
+}
+
+#home .image {/*posição da imagem*/
+    position: relative;
+}
+
+#home .image::before {/*fundo da 1ª imagem*/
+    content: '';
+    height: 80%;
+    width: 80%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -16.8%;
+    left: 16.7%;
+    z-index: 0;
+}
+
+#home .image img {/*posição da 1ª imagem*/
+    position: relative;
+    right: 2.93rem;
+    left: 1.51rem;
+}
+
+#home .image img,
+#home .image::before {/*estilizar a borda da 1ª imagem e da "sombra"*/
+    border-radius: 0.25rem;
+}
+
+#home .text {/*estilizar o texto ao lado da 1ª imagem*/
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: center;
+}
+
+#home .text h1 {/*centralizar o h1*/
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#home .text p {/*largura da "sombra da 1ª imagem"*/
+    margin-bottom: 2rem;
+}
+
+/*====  Cursos ============================ */
+.cards.grid {
+    gap: 1.5rem;
+}
+
+.card {/*tamanho das box dos cursos*/
+    padding: 3.625rem 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 0.25rem solid var(--base-color);
+    border-radius: 0.25rem 0.25rem 0 0;
+    text-align: center;
+}
+
+.card .title {/*distancia entre o texto e as imagens das box dos cursos*/
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+#img-cursos{/*tamanho das imagens das box dos cursos*/
+    width: 100px;
+    height: 100px;
+}
+
+/*====  ENGENHARIA ============================ */
+#engsoft {/*cor do fundo da sessão de about*/
+    background: white;
+}
+
+#engsoft .container {/*alinhamento*/
+    margin: 0;
+}
+
+#engsoft .image {/*posição da 2ª imagem*/
+    position: relative;
+}
+
+#engsoft .image::before {/*fundo da 2ª imagem*/
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0;
+}
+
+#engsoft .image img {/*posição da 2ª imagem*/
+    position: relative;
+}
+
+#engsoft .image img,
+#engsoft .image::before {/*bordas e "sombra" da 2ª imagem*/
+    border-radius: 0.25rem;
+}
+
+#engsoft .text {/*alinhamento do titulo*/
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: center;
+}
+
+#engsoft .text p {/*alinhamento do texto*/
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+/*====  ABOUT ============================ */
+#si {/*cor do fundo da sessão de about*/
+    background: white;
+}
+
+#si .container {/*alinhamento*/
+    margin: 0;
+}
+
+#si .image {/*posição da 2ª imagem*/
+    position: relative;
+}
+
+#si .image::before {/*fundo da 2ª imagem*/
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0;
+}
+
+#si .image img {/*posição da 2ª imagem*/
+    position: relative;
+}
+
+#si .image img,
+#si .image::before {/*bordas e "sombra" da 2ª imagem*/
+    border-radius: 0.25rem;
+}
+
+#si .text {/*alinhamento do titulo*/
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: center;
+}
+
+#si .text p {/*alinhamento do texto*/
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+/*====  CONTACT ============================ */
+#contact .grid {/*distancia entre os texto da sessão de contato*/
+    gap: 4rem;
+}
+
+#contact .text p {/*distancia entre o botão e o texto*/
+    margin-bottom: 2rem;
+}
+
+#contact .button,
+#contact ul li {/*tamanho do botão "entrar em contato" e do texto*/
+    font-size: 1.5rem;
+    margin-right: 0.625rem;
+}
+
+#contact ul.grid {/*tamanho da sessão de contato*/
+    gap: 2rem;
+}
+
+#contact ul li {/*alinhamento das imagens*/
+    display: flex;
+    align-items: center;
+}
+
+#contact ul li {/*cor dos texto de "telefone" e "email"*/
+    color: var(--base-color);
+}
+
+#img-contact{/*tamanho das imagens da sessão de contato*/
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+}
+
+/*====  FOOTER ============================ */
+footer {
+    background: var(--base-color);
+}
+
+footer.section {
+    padding: 4rem 0;
+}
+
+footer .logo {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+footer .brand p {/*cor dos texto do rodapé*/
+    color: var(--text-color-light);
+    margin-bottom: 0.75rem;
+}
+
+footer .social {
+    grid-auto-flow: column;
+    width: fit-content;
+}
+
+footer .social a {
+    transition: 0.3s;
+    display: inline-block;
+}
+
+footer .social a:hover {
+    transform: translateY(-8px);
+}
+
+#img-midias-sociais{/*tamanho das imagens do rodapé*/
+    width: 30px;
+    height: 30px;
+}
+
+/* Back to top */
+.back-to-top {/*cor e posição da seta do home*/
+    background: var(--base-color);
+    color: var(--text-color-light);
+
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+
+    padding: 0.5rem;
+    clip-path: circle();
+
+    font-size: 1.5rem;
+    line-height: 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 0.3s;
+    transform: translateY(100%);
+}
+
+/*========= MEDIA QUERIES =========*/
+/* extra large devices: 1200 > */
+@media (min-width: 1200px) {
+
+    /* reusable classes */
+    .container {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section {
+        padding: 10rem 0;
+    }
+
+    .section header,
+    #testimonials header {
+        max-width: 32rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button {
+        height: 3.125rem;
+    }
+
+    /* navigation */
+    nav .menu {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+
+    nav .menu ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav .menu ul li a.title {
+        font: 400 1rem var(--body-font);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    nav .menu ul li a.title.active {
+        font-weight: bold;
+        -webkit-font-smoothing: auto;
+    }
+
+    nav .icon-menu {
+        display: none;
+    }
+
+    /* layout */
+    main {
+        margin-top: var(--header-height);
+    }
+
+    /* home */
+    #home .container {
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    #home .image {
+        order: 1;
+    }
+
+    #home .text {
+        order: 0;
+        max-width: 24rem;
+        text-align: left;
+    }
+
+    /* about */
+    #engsoft{
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+    
+    #si .container {
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+
+    /* cursos */
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .card {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    /* testimonials */
+    #testimonials .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* contact */
+    #contact .container {
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    #contact .text {
+        max-width: 25rem;
+    }
+
+    /* footer */
+    footer.section {
+        padding: 3.75rem 0;
+    }
+
+    footer .container {
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    footer .logo {
+        font-size: 2.25rem;
+    }
+}
+
+/* large devices: 1023 > */
+@media (min-width: 1023px) {
+
+    /* Home */
+    #home .container {
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    #home .image {
+        order: 1;
+    }
+
+    #home .text {
+        order: 0;
+        max-width: 24rem;
+        text-align: left;
+    }
+
+    /* about */
+    #engsoft{
+        display: flex;
+        justify-content: center;
+    }
+
+    #engsoft .container {
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+
+    #engsoft img {
+        width: 100%;
+        height: auto;
+    }
+
+    #si .container {
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+
+    #si{
+        display: flex;
+        justify-content: center;
+    }
+
+    #si img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* large devices: 1023 > */
+@media (min-width: 1023px) {
+
+    /* Home */
+    #home .container {
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    #home .image {
+        order: 1;
+        width: 100%;
+    }
+
+    #home .text {
+        order: 0;
+        max-width: 24rem;
+        text-align: justify;
+        margin-right: 5rem;
+    }
+
+    /* about */
+    #engsoft .container {
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+
+    #engsoft{
+        width: 100%;
+        height: auto;
+    }
+
+    #engsoft img {
+        width: 100%;
+        height: auto;
+    }
+
+    #si .container {
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+
+    #si{
+        width: 100%;
+        height: auto;
+    }
+
+    #si img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* large devices: 992 > */
+@media (min-width: 992px) {
+    :root {
+        --title-font-size: 2.25rem;
+        --subtitle-font-size: 1.125rem;
+    }
+
+    .cards {
+        display: flex;
+    }
+
+    .cards .card {
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    #cursos .cards .card:hover {
+        transform: scale(1.1, 1.1);
+    }
+
+    #cursos header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* medium devices: 767 > */
+@media (min-width: 767px) {
+
+    /* navigation */
+    nav .menu {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+
+    nav .menu ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav .menu ul li a.title {
+        font: 400 1rem var(--body-font);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    nav .menu ul li a.title.active {
+        font-weight: bold;
+        -webkit-font-smoothing: auto;
+    }
+
+    nav .icon-menu {
+        display: none;
+    }
+
+    /* Reusable Classes */
+    img {
+        width: 75%;
+        height: auto;
+    }
+
+    /* About */
+    #engsoft{
+        display: flex;
+        justify-content: center;  
+    }
+
+    #engsoft .image::before {
+        left: -20%;
+        top: -12%;
+    }
+
+    #si .image {
+        display: flex;
+        justify-content: center;
+    }
+
+    #si .image::before {
+        left: -20%;
+        top: -12%;
+    }
+
+    /* Footer */
+    footer.section {
+        padding: 3.75rem 0;
+    }
+}
