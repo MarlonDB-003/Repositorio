@@ -98,7 +98,7 @@ form input[type="submit"] {
     cursor: pointer;
     background-color: var(--base-color);
     color: var(--text-color-light);
-    height: 2rem;
+    height: 3.5rem;
     display: inline-flex;
     text-align: center;
     align-items: center;
@@ -147,4 +147,28 @@ a:hover {
 .img img {
     width: 50px;
     height: 50px;
+}
+
+.button-2 {
+    /*cor dos botões*/
+    background-color: var(--base-color);
+    color: var(--text-color-light);
+    width: 6.5rem;
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    font: 500 1rem var(--body-font);
+    transition: background 0.3s;
+}
+
+.button-2:hover {
+    background: var(--base-color-alt);
+    color: white;
+    /*hover dos botões*/
+}
+
+.btn {
+    margin-left: 70px;
 }
