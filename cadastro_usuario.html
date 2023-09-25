@@ -8,7 +8,7 @@
     <title>Login</title>
     <!--  STYLES  -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/login_style.css">
+    <link rel="stylesheet" type="text/css" href="css/cadastro_style.css">
 
     <!--  FONTS  -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -31,10 +31,25 @@
 
         <div class="direita">
 
-            <h2>Lo<span>gin</span></h2>
+            <h2>Cad<span>astro</span></h2>
 
             <form method="">
 
+                <div class="input-field">
+                    <label>Nome</label>
+                    <input type="text" name="nome" id="nome">
+                    <div class="underline"></div>
+                </div>
+                <div class="input-field">
+                    <label>CPF</label>
+                    <input type="number" name="cpf" id="cpf">
+                    <div class="underline"></div>
+                </div>
+                <div class="input-field">
+                    <label>SIAP</label>
+                    <input type="number" name="siap" id="siap">
+                    <div class="underline"></div>
+                </div>
                 <div class="input-field">
                     <label>E-mail</label>
                     <input type="text" name="email" id="email">
@@ -49,10 +64,6 @@
                     <input type="submit" value="Login">
                     <a href="index.html" class="button-2">Voltar</a>
                 </div>
-
-
-                <p>Você não é cadastrado em nossa plataforma ?</p>
-                <a href="cadastro_usuario.html">Cadastre-se aqui!</a>
 
             </form>
 

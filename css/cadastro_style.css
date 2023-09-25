@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 400 1rem var(--body-font);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    background: var(--base-color-second);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    background: white;
+    min-width: 320px;
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.esquerda h1 {
+    margin-bottom: 10px;
+    text-align: center;
+    font: 700 2.5rem var(--title-font);
+    color: var(--title-color);
+    /*Mudar a cor do "marlon"*/
+}
+
+span {
+    color: var(--base-color);
+    /*Mudar a cor do "Silva"*/
+}
+
+.direita h2 {
+    width: 400px;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+    font: 700 2rem var(--title-font);
+    color: var(--title-color);
+    /*Mudar a cor do "marlon"*/
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    position: relative;
+    margin-top: 10px;
+}
+
+.input-field label {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--title-color);
+    /*Mudar a cor do "marlon"*/
+}
+
+form .input-field:first-child {
+    margin-bottom: 1.5rem;
+}
+
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: var(--title-color);
+    /*Mudar a cor do "marlon"*/
+    ;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+form input[type="submit"] {
+    cursor: pointer;
+    background-color: var(--base-color);
+    color: var(--text-color-light);
+    height: 3.5rem;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    padding: 0 2rem;
+    margin: 30px auto;
+    max-width: 200px;
+    border-radius: 0.25rem;
+    font: 500 1rem var(--body-font);
+    transition: background 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background: var(--base-color-alt);
+    /*hover dos botões*/
+}
+
+p {
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    font-size: 1em;
+    color: var(--title-color);
+    /*Mudar a cor do "marlon"*/
+}
+
+a {
+    text-decoration: none;
+    color: var(--title-color);
+    /*Mudar a cor do "marlon"*/
+    font-size: 15px;
+    text-align: center;
+}
+
+a:hover {
+    color: var(--base-color-alt);
+    /*hover dos botões*/
+    ;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.img img {
+    width: 50px;
+    height: 50px;
+}
+
+.button-2 {
+    /*cor dos botões*/
+    background-color: var(--base-color);
+    color: var(--text-color-light);
+    width: 6.5rem;
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    font: 500 1rem var(--body-font);
+    transition: background 0.3s;
+}
+
+.button-2:hover {
+    background: var(--base-color-alt);
+    color: white;
+    /*hover dos botões*/
+}
+
+.btn {
+    margin-left: 100px;
+}
