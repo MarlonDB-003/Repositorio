@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientia</title>
+    <!--  STYLES  -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!--  FONTS  -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header id="header">
+        <nav class="container">
+            <a class="logo">Scie<span>ntia</span></a>
+            <div class="menu">
+                <ul class="grid">
+                    <li><a class="title" href="home.php">Home</a></li>
+                    <li><a class="title" href="cadastrar_questao.php">Cadastrar Questão</a></li>
+                    <li><a class="title" href="gerar_simulado.php">Gerar Simulado</a></li>
+                    <li><a class="title" href="meu_perfil.php">Meu Perfil</a></li>
+                    <li><a class="title" href="logout.php">Sair</a></li>
+                </ul>
+            </div>
+            <div class="toggle icon-menu"></div>
+            <div class="toggle icon-close"></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" id="home">
+            <div class="container grid">
+                <div class="image">
+                    <img src="imagens/provas.jpg" alt="imagem prova" />
+                </div>
+                <div class="text">
+                    <h1 class="title">Bem vindo ao Scentia, Profº
+                        <?php echo $_SESSION['nome']; ?> </h1>
+                    <p>
+                        Esse site tem um objetivo simples, o cadastramento de questões para elaboração de provas e simulados que irão facilitar ainda mais a maneira de como os professores irão aplicar sua provas em sala de aula
+                    </p>
+
+                    <a href="#" class="button">Ver mais</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider-1"></div>
+
+    </main>
+
+    <footer class="section">
+        <div class="container grid">
+            <div class="brand">
+                <a class="logo logo-alt" href="#home">Scie<span>ntia</span>.</a>
+                <p> &copy;2023 Scientia.</p>
+                <p> Todos os direitos reservados.&reg; </p>
+            </div>
+            <div class="social grid">
+                <a href="https://facebook.com/" target="_blank">
+                    <img src="imagens/facebook.png" alt="imagem facebook" id="img-midias-sociais" />
+                </a>
+                <a href="https://instagram.com/" target="_blank">
+                    <img src="imagens/instagram.png" alt="imagem instagram" id="img-midias-sociais" />
+                </a>
+                <a href="https://linkedin.com/" target="_blank">
+                    <img src="imagens/linkedin.png" alt="imagem linkedin" id="img-midias-sociais" />
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><img src="img/seta.png" alt="imagem seta" id="img-midias-sociais" /></a>
+
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- SCROLLREVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- MAIN.JS -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
