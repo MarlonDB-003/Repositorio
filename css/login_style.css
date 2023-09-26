@@ -55,55 +55,66 @@ span {
     /*Mudar a cor do "marlon"*/
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-field {
+.label-float {
     position: relative;
+    padding-top: 13px;
 }
 
-.input-field label {
-    font-size: 1em;
-    font-weight: 500;
-    color: var(--title-color);
-    /*Mudar a cor do "marlon"*/
-}
-
-form .input-field:first-child {
-    margin-bottom: 1.5rem;
-}
-
-.input-field .underline::before {
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    bottom: -5px;
-    left: 0;
-    background: var(--title-color);
-    /*Mudar a cor do "marlon"*/
-    ;
-}
-
-.input-field input {
+.label-float input {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
     outline: none;
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.7);
     width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -webkit-appearance: none;
+}
+
+.label-float input:focus {
+    border: 2px solid var(--base-color);
+}
+
+.label-float input::placeholder {
+    color: transparent;
+}
+
+.label-float label {
+    pointer-events: none;
+    position: absolute;
+    top: calc(50% - 8px);
+    left: 15px;
+    transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    background-color: white;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.label-float input:required:invalid+label:before {
+    content: '*';
+}
+
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label {
+    font-size: 13px;
+    top: 0;
+    color: var(--base-color);
 }
 
 form input[type="submit"] {
     cursor: pointer;
     background-color: var(--base-color);
     color: var(--text-color-light);
-    height: 3.5rem;
+    width: 6.5rem;
+    height: 2.5rem;
     display: inline-flex;
     text-align: center;
     align-items: center;
     padding: 0 2rem;
-    margin: 30px auto;
     max-width: 200px;
     border-radius: 0.25rem;
     font: 500 1rem var(--body-font);
@@ -153,8 +164,7 @@ a:hover {
     /*cor dos botões*/
     background-color: var(--base-color);
     color: var(--text-color-light);
-    width: 6.5rem;
-    height: 3.5rem;
+    height: 2.5rem;
     display: inline-flex;
     align-items: center;
     padding: 0 2rem;
@@ -169,6 +179,14 @@ a:hover {
     /*hover dos botões*/
 }
 
-.btn {
-    margin-left: 70px;
+.div-btn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    display: flex;
+    float: left;
+}
+
+.div1+.div2 {
+    margin-left: 25px;
 }
