@@ -58,7 +58,7 @@ html {
 
 body {
     /*cor de fundo de toda a pagina e dos textos*/
-    font: 400 1rem var(--body-font);
+    font: 400 1.2rem var(--body-font);
     color: var(--text-color);
     background: var(--body-color);
     -webkit-font-smoothing: antialiased;
@@ -85,8 +85,8 @@ body {
 }
 
 .button:hover {
-    background: var(--text-color);
-    /*hover dos botões*/
+    background: var(--base-color-alt);
+    color: white;
 }
 
 .divider-1 {
@@ -338,8 +338,12 @@ nav.show div.icon-close {
 }
 
 #home .text p {
-    /*largura da "sombra da 1ª imagem"*/
     margin-bottom: 2rem;
+    text-align: justify;
+}
+
+#home .title span {
+    color: var(--base-color);
 }
 
 
