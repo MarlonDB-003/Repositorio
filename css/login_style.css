@@ -24,7 +24,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
     background: white;
     min-width: 320px;
     min-height: 40vh;
@@ -38,21 +38,19 @@ body {
     text-align: center;
     font: 700 2.5rem var(--title-font);
     color: var(--title-color);
-    /*Mudar a cor do "marlon"*/
 }
 
 span {
     color: var(--base-color);
-    /*Mudar a cor do "Silva"*/
 }
 
 .direita h2 {
+    width: 400px;
     margin-bottom: 2rem;
     position: relative;
     text-align: center;
     font: 700 2rem var(--title-font);
     color: var(--title-color);
-    /*Mudar a cor do "marlon"*/
 }
 
 .label-float {
@@ -182,9 +180,8 @@ a:hover {
 .div-btn {
     margin-top: 10px;
     margin-bottom: 20px;
-    margin-left: 15px;
+    margin-left: 90px;
     display: flex;
-    float: left;
 }
 
 .div1+.div2 {

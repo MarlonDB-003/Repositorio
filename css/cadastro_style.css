@@ -24,7 +24,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
     background: white;
     min-width: 320px;
     min-height: 40vh;
@@ -188,11 +188,7 @@ a:hover {
 .div-btn {
     margin-top: 10px;
     margin-bottom: 20px;
-    margin-left: 90px;
+    margin-left: 130px;
     display: flex;
     float: left;
-}
-
-.div1+.div2 {
-    margin-left: 25px;
 }
