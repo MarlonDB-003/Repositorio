@@ -63,17 +63,8 @@ body {
     border-radius: 8px;
 }
 
-.esquerda h1 {
-    margin-bottom: 10px;
-    text-align: center;
-    font: 700 2.5rem var(--title-font);
-    color: var(--title-color);
-    /*Mudar a cor do "marlon"*/
-}
-
 span {
     color: var(--base-color);
-    /*Mudar a cor do "Silva"*/
 }
 
 .direita h2 {
@@ -83,12 +74,6 @@ span {
     text-align: center;
     font: 700 2rem var(--title-font);
     color: var(--title-color);
-    /*Mudar a cor do "marlon"*/
-}
-
-form {
-    display: flex;
-    flex-direction: column;
 }
 
 .label-float {
@@ -145,6 +130,7 @@ form input[type="submit"] {
     cursor: pointer;
     background-color: var(--base-color);
     color: var(--text-color-light);
+    width: 6.5rem;
     height: 2.5rem;
     display: inline-flex;
     text-align: center;
@@ -199,7 +185,6 @@ a:hover {
     /*cor dos botões*/
     background-color: var(--base-color);
     color: var(--text-color-light);
-    width: 6.5rem;
     height: 2.5rem;
     display: inline-flex;
     align-items: center;
@@ -218,7 +203,44 @@ a:hover {
 .div-btn {
     margin-top: 2rem;
     margin-bottom: 20px;
-    margin-left: 130px;
+    margin-left: 85px;
     display: flex;
-    float: left;
+}
+
+.div1+.div2 {
+    margin-left: 25px;
+}
+
+#msg {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    transition: all .1s linear;
+    outline: var(--base-color);
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -webkit-appearance: none;
+}
+
+#msg:focus {
+    border: 2px solid var(--base-color);
+}
+
+#msg::placeholder {
+    color: transparent;
+}
+
+#msg:required:invalid+label:before {
+    content: '*';
+}
+
+#msg:focus+label,
+#msg:not(:placeholder-shown)+label {
+    font-size: 13px;
+    top: 0;
+    color: var(--base-color);
 }

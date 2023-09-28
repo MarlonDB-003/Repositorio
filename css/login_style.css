@@ -5,6 +5,36 @@
     box-sizing: border-box;
 }
 
+
+/*====  VARIABLES ============================ */
+
+:root {
+    --header-height: 4.5rem;
+    /* colors */
+    --hue: 150;
+    /*cor baseada na matriz de cores*/
+    /* HSL color mode */
+    --base-color: hsl(var(--hue) 36% 57%);
+    /*cor dos botões, rodapé e etc*/
+    --base-color-second: hsl(var(--hue) 65% 88%);
+    /*cor da sombra das imagens*/
+    --base-color-alt: hsl(var(--hue) 57% 53%);
+    /*cor do hover dos botões*/
+    --title-color: hsl(var(--hue) 41% 10%);
+    /*cor dos textos do menu, rodapé e dos titulos das sessões*/
+    --text-color: hsl(0 0% 46%);
+    /*Cor dos textos*/
+    --text-color-light: hsl(0 0% 98%);
+    /*cor dos textos das box*/
+    --body-color: hsl(0 0% 98%);
+    /*cor do fundo da pagina*/
+    /* fonts */
+    --title-font-size: 1.875rem;
+    --subtitle-font-size: 1rem;
+    --title-font: 'Poppins', sans-serif;
+    --body-font: 'DM Sans', sans-serif;
+}
+
 body {
     font: 400 1rem var(--body-font);
     color: var(--text-color);
@@ -18,7 +48,7 @@ body {
     justify-content: center;
 }
 
-.container {
+.container-1 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -31,13 +61,6 @@ body {
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-}
-
-.esquerda h1 {
-    margin-bottom: 10px;
-    text-align: center;
-    font: 700 2.5rem var(--title-font);
-    color: var(--title-color);
 }
 
 span {
@@ -178,7 +201,7 @@ a:hover {
 }
 
 .div-btn {
-    margin-top: 10px;
+    margin-top: 2rem;
     margin-bottom: 20px;
     margin-left: 90px;
     display: flex;

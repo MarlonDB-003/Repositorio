@@ -5,48 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Contato</title>
     <!--  STYLES  -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/login_style.css">
+    <link rel="stylesheet" type="text/css" href="css/contato_style.css">
 
     <!--  FONTS  -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <header id="header">
-        <nav class="container">
-            <a class="logo" href="index.html">Scie<span>ntia</span></a>
-        </nav>
-    </header>
     <main class="container-1">
+        <header id="header">
+            <nav class="container">
+                <a class="logo" href="index.html">Scie<span>ntia</span></a>
+            </nav>
+        </header>
+
         <div class="direita">
 
-            <h2>Lo<span>gin</span></h2>
+            <h2>Con<span>tato</span></h2>
 
             <form method="">
-
                 <div class="label-float">
-                    <input type="number" name="siap" id="siap" placeholder=" ">
-                    <label>SIAP</label>
+                    <input type="text" name="nome" id="nome" placeholder=" ">
+                    <label>Nome</label>
                 </div>
                 <div class="label-float">
-                    <input type="password" name="senha" id="senha" placeholder=" ">
-                    <label>Senha</label>
+                    <input type="text" name="email" id="email" placeholder=" ">
+                    <label>E-mail</label>
+                </div>
+                <div class="label-float">
+                    <textarea id="msg" name="msg" placeholder=" "></textarea>
+                    <label>Digite sua mensagem</label>
                 </div>
                 <div class="div-btn">
                     <div class="div1">
-                        <input type="submit" value="Login">
+                        <input type="submit" value="Enviar">
                     </div>
                     <div class="div2">
                         <a href="index.html" class="button-2">Voltar</a>
                     </div>
                 </div>
-                <div class="text-cad">
-                    <p>Não possui cadastro? <a href="cadastro_usuario.html"><b>CLIQUE AQUI!</b></a></p>
-                </div>
-
             </form>
 
         </div>
