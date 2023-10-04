@@ -1,7 +1,7 @@
 import express from "express";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-//import usuario from "./usuarioRoutes"
+import usuarios from "./usuarioRoutes.js"
 
 const routes = (app) => {
     // Obtenha o diretório atual do módulo
@@ -19,7 +19,7 @@ const routes = (app) => {
     // Configurar o middleware para servir arquivos estáticos (CSS, JS, imagens)
     app.use(express.static(join(staticDirectory, 'web')));
 
-    app.use(express.json() /*usuario*/ );
+    app.use(express.json(), usuarios);
 };
 
 export default routes;

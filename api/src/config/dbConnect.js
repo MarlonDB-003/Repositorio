@@ -1,23 +1,9 @@
-//const mysql = require('mysql2');
-import * as mysql from 'mysql2'
+import mongoose, { mongo } from "mongoose";
+
 async function conectaDatabase() {
+    mongoose.connect(process.env.DB_CONNECTION_STRING);
 
-    //criar a conexao com o banco de dados
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'scientia_repositorio'
-    });
-
-    connection.connect(function(err) {
-        console.log("Conexão com o banco de dados realizada com sucesso!!!");
-    });
-
-
-    //connect(process.env.DB_CONNECTION_STRING);
-
-    return connection.connect;
+    return mongoose.connection;
 };
 
 export default conectaDatabase;
